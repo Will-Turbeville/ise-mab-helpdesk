@@ -1,0 +1,12 @@
+version: '3.9'
+
+services:
+  ise-mab-helpdesk:
+    build: .
+    container_name: hgtc-ise-mab-helpdesk
+    restart: unless-stopped
+    ports:
+      - "8501:8501"
+    env_file:
+      - .env
+    # Remove the volume line for .env to avoid read-only issues
