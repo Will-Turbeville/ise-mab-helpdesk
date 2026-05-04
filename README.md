@@ -6,8 +6,17 @@ A simple and secure web tool that allows Help Desk technicians to add, remove, a
 - View MAC addresses in any Endpoint Identity Group
 - Add or update MAC addresses
 - Remove MAC addresses from a group
-- Dedicated Settings page for configuration
+- Protected Settings page (Admin only)
 - Docker support
+
+## Default Login Credentials
+
+| Role     | Username   | Password    |
+|----------|------------|-------------|
+| Admin    | admin      | admin123    |
+| User     | user       | user123     |
+
+⚠️ Security Reminder: Please change the default passwords immediately after first login.
 
 ## Quick Start (Docker Recommended)
 
@@ -18,29 +27,28 @@ A simple and secure web tool that allows Help Desk technicians to add, remove, a
    docker compose up --build -d
 
 4. Open your browser and go to: http://localhost:8501
+5. Login with one of the accounts above
 
-## How to Configure ISE Connection
+## How to Configure (Admin Only)
 
-1. In the left sidebar, click "1 Settings"
-2. Enter your ISE PAN URL, ERS Username, and Password
-3. Choose Authentication Type (Basic Auth for now)
-4. Click "Save Settings"
-5. Return to the main page using the sidebar
+1. Login as Admin
+2. Click "1 Settings" in the left sidebar
+3. Enter your ISE PAN URL, ERS Username, and Password
+4. Click "Save ISE Settings"
 
-The app will automatically create/update the .env file with your settings.
+## How to Change Login Accounts
 
-## Configuration Example
-
-ISE_URL=https://ise.yourcompany.com
-ERS_USER=ers_helpdesk
-ERS_PASS=YourSecurePassword
-
-Security Note: Never commit your real .env file to GitHub.
+1. Login as Admin
+2. Go to Settings
+3. Scroll to "Manage Login Accounts"
+4. Update usernames/passwords
+5. Click "Save Login Accounts"
+6. Log out and log back in
 
 ## ISE Server Requirements
 
-- ERS must be enabled (Administration → System → Settings → API Settings → Enable ERS Read/Write)
-- Use a dedicated account assigned to the ERS Admin group
+- Enable ERS API (Administration → System → Settings → API Settings)
+- Create a dedicated user in the ERS Admin group
 
 ## Tech Stack
 - Python 3.12
@@ -49,4 +57,4 @@ Security Note: Never commit your real .env file to GitHub.
 - Docker
 
 ## Support
-For questions or feature requests, contact Will Turbeville.
+Contact Will Turbeville for questions or enhancements.
