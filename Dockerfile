@@ -5,7 +5,8 @@ WORKDIR /app
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY ise_mab_helpdesk.py .
+# Copy all files including the pages folder
+COPY . .
 
 EXPOSE 8501
 
